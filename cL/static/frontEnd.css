@@ -1,0 +1,56 @@
+/* This file contains the style parameters for the sample client. */
+
+
+.UI {
+    width: 300px;
+    height: 240px;
+    border: thin white solid;
+    background-color: #212121;
+    padding: 10px 12px 12px 10px;	
+	-moz-box-shadow: 10px 10px 10px rgba(0,0,0,1) inset, -9px -9px 8px rgba(0,0,0,1) inset;
+	-webkit-box-shadow: 8px 8px 8px rgba(0,0,0,1) inset, -9px -9px 8px rgba(0,0,0,1) inset;
+	box-shadow: 8px 8px 8px rgba(0,0,0,1) inset, -9px -9px 8px rgba(0,0,0,1) inset;
+    margin: 100px auto;
+}
+
+input[type="submit"] {
+background: #000;
+color: #E8E8E8;
+padding: 5px 10px;
+margin: 10px 0;
+width:75px;
+font-weight: lighter;
+border: 1px solid white;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+ border-radius: 5px;
+}
+
+input[type="password"] {
+background: #000;
+margin: 5px 0;
+color: #E8E8E8;
+border: 1px solid white;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+ border-radius: 5px;
+}
+
+input[type="text"] {
+background: #000;
+color: #E8E8E8;
+border: 1px solid white;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+ border-radius: 5px;
+}
+.txt {
+    margin: 5px 20px 5px 20px;
+}
+
+body {
+	background: #000;
+	color: white;
+	font-family: 'Helvetica', HelveticaNeue-Light, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+

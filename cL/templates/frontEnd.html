@@ -1,0 +1,156 @@
+<!doctype html>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}/frontEnd.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+
+<!-- login page -->
+<center>
+
+<div id="login" class="UI">
+  <h2>Login</h2>
+  <div id="loginMessage" class="txt">
+  </div>
+
+    <form>
+    <!-- <fieldset id="inputs"> -->
+	<center>
+        <input id="username" type="text" placeholder="Username"> 
+	</center> 
+	<center> 
+        <input id="password" type="password" placeholder="Password">
+	</center> 
+    <!--</fieldset>-->
+    <!--<fieldset id="actions">-->
+        <input type="submit" id="loginButton" value="Log in">
+	<input type="submit" id="addUserButton" value="Add User">
+    <!--</fieldset>-->
+    </form>
+</div>
+
+</center>
+
+
+<!-- Welcome page -->
+<center>
+<div id="welcome" class="UI">
+  <h2>Welcome!</h2>
+  <div id ="welcomeMessage" class="txt">
+   </div>
+  
+    
+    <form>
+        <input type="submit" id="logOut" value="Log out">
+    </form>
+</div>
+</center>
+
+
+ 
+<script type="text/javascript">
+<!--
+
+
+$(document).ready(function() {
+   loginPage('default');
+ });
+
+function loginPage(message) {
+  $('#login').hide()
+  $('#welcome').hide()
+  $('#username').val("")
+  $('#password').val("")
+  $('#loginMessage').html("")
+  $('#welcomeMessage').html("")
+  //init login page
+  if(message == 'default')message = "Please enter your login credentials.";
+     $('#welcome').hide()
+     $('#loginUsername').val("")
+     $('#loginPassword').val("")
+     $('#loginMessage').html(message)
+     $('#login').show()
+}
+
+function welcomePage(username, count) {
+  $('#login').hide()
+  $('#welcome').show()
+  $('#welcomeMessage').html("Hello there, "+  username +", you logged in " + count + " times.")
+
+}
+
+ERR_BAD_CREDENTIALS = -1;
+ERR_USER_EXISTS = -2;
+ERR_BAD_USERNAME = -3;
+ERR_BAD_PASSWORD  = -4;
+
+
+function request(page, dict, success, failure) {
+    $.ajax({
+        type: 'POST',
+        url: page,
+        data: JSON.stringify(dict),
+        contentType: "application/json",
+        dataType: "json",
+        success: success,
+        failure: failure
+    });
+}
+
+
+function errcode(code) {
+    if( code == ERR_BAD_CREDENTIALS) {
+        return ("Invalid credentials. Please try again. ");
+    } else if( code == ERR_USER_EXISTS) {
+        return ("This username already exists!");
+    } else if( code == ERR_BAD_USERNAME) {
+        return ("Invalid Username.  Usernames should not be empty and have, at most, 128 characters. Please try again.");;
+    } else if( code == ERR_BAD_PASSWORD) {
+        return ("Invalid Password. Passwords should be at most 128 characters long. Please try again");
+    } 
+}
+
+function loginResponse(data, user) {
+  if( data.errCode > 0 ) {
+     c = data.count;
+     welcomePage(user, c);
+  } else {
+     loginPage(errcode(data.errCode));  
+  }
+}
+
+function addResponse(data, user) {
+  if( data.errCode > 0 ) {
+     c = data.count;
+     welcomePage(user, c);
+  } else {
+     loginPage(errcode(data.errCode));  
+  }
+}
+
+
+$('#loginButton').click(function() {
+   username = $('#username').val()
+   password = $('#password').val()
+   request("/users/login", { user: username, password: password }, function(data) { return loginResponse(data, username); }, function(err) { alert('error occurred on request'); });
+
+   return false;
+});
+
+$('#addUserButton').click(function() {
+   username = $('#username').val()
+   password = $('#password').val()
+   request("/users/add", { user: username, password: password }, function(data) { return addResponse(data, username); }, function(err) {alert('error occurred on request'); });
+
+   return false;
+});
+
+$('#logOut').click(function() {
+  loginPage('default');
+
+  return false;
+});
+
+  
+
+-->
+</script>
+</html>

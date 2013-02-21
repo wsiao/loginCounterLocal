@@ -1,0 +1,64 @@
+
+======= Running functional tests ======
+
+python -m unittest discover -v 
+testAdd1 (testSimple.TestAddUser) ... ok
+testUnit (testSimple.TestUnit) ... FAIL
+
+======================================================================
+FAIL: testUnit (testSimple.TestUnit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/wayland/loginCounter/cL/warmup/testSimple.py", line 23, in testUnit
+    "at least "+str(minimumTests)+" unit tests. Found only "+str(respData['totalTests'])+". use SAMPLE_APP=1 if this is the sample app")
+AssertionError: at least 10 unit tests. Found only 4. use SAMPLE_APP=1 if this is the sample app
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.048s
+
+FAILED (failures=1)
+Unit tests output:
+testAdd1 (cL.tests.TestUsers) ... ERROR
+***** testAdd2 (cL.tests.TestUsers) ... ERROR
+***** testAddEmptyUsername (cL.tests.TestUsers) ... ERROR
+***** testAddExists (cL.tests.TestUsers) ... ERROR
+***** 
+***** ======================================================================
+***** ERROR: testAdd1 (cL.tests.TestUsers)
+***** ----------------------------------------------------------------------
+***** Traceback (most recent call last):
+*****   File "/home/wayland/loginCounter/cL/tests.py", line 33, in setUp
+*****     self.users = models.UsersModel()
+***** NameError: global name 'models' is not defined
+***** 
+***** ======================================================================
+***** ERROR: testAdd2 (cL.tests.TestUsers)
+***** ----------------------------------------------------------------------
+***** Traceback (most recent call last):
+*****   File "/home/wayland/loginCounter/cL/tests.py", line 33, in setUp
+*****     self.users = models.UsersModel()
+***** NameError: global name 'models' is not defined
+***** 
+***** ======================================================================
+***** ERROR: testAddEmptyUsername (cL.tests.TestUsers)
+***** ----------------------------------------------------------------------
+***** Traceback (most recent call last):
+*****   File "/home/wayland/loginCounter/cL/tests.py", line 33, in setUp
+*****     self.users = models.UsersModel()
+***** NameError: global name 'models' is not defined
+***** 
+***** ======================================================================
+***** ERROR: testAddExists (cL.tests.TestUsers)
+***** ----------------------------------------------------------------------
+***** Traceback (most recent call last):
+*****   File "/home/wayland/loginCounter/cL/tests.py", line 33, in setUp
+*****     self.users = models.UsersModel()
+***** NameError: global name 'models' is not defined
+***** 
+***** ----------------------------------------------------------------------
+***** Ran 4 tests in 0.000s
+***** 
+***** FAILED (errors=4)
+***** 
+***** Reported 4 unit tests
+make: *** [func_tests] Error 1
